@@ -19,12 +19,11 @@ jobs:
 
       - name: Run update script
         run: | 
-            sudo chmod 777 update_readme.sh
-            ./update_readme.sh
+           ${{ github.event.pull_request.title }} >> readme.txt
             
       - uses: actions/upload-artifact@v3   
         with:
           name: Build    
-          path: output/readme.txt
+          path: readme.txt
 
      

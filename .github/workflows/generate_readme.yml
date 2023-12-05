@@ -30,4 +30,4 @@ jobs:
           git remote set-url origin https://gobikaponnusamy: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@github.com/gobikaponnusamy/demo.git
           git add output/readme.txt
           git commit -m "Update readme with PR info [skip ci]"
-          git push
+          git push origin HEAD:main

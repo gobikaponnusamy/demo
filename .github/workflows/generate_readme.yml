@@ -31,5 +31,5 @@ jobs:
           git add output/readme.txt
           git commit -m "Update readme with PR info [skip ci]"
           git checkout main
-          git pull
+          git pull origin main
           git push origin HEAD:main

@@ -1,6 +1,7 @@
 name: Update Readme
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -17,7 +18,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run update script
-        run: ./update_readme.sh
+        run: |
+           sudo chmod 777 update_readme.sh
+           ./update_readme.sh
 
       - name: Commit and push changes
         run: |

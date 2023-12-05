@@ -20,12 +20,9 @@ jobs:
       - name: Run update script
         run: |
            echo "PR Title: ${{ github.event.pull_request.title }}" >> readme.txt
-           DESCRIPTION=$(curl -sSL -H "Authorization: token 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" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.body')
-           if [ "$DESCRIPTION" = "null" ]; then
-             echo "PR Description: null" >> readme.txt
-           else
-             echo "PR Description: $DESCRIPTION" >> readme.txt
-           fi
+           DESCRIPTION=$(curl -s -H "Authorization: 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" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/gobikaponnusamy/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} | jq -r '.body')
+           echo $DESCRIPTION >>readme.txt
+
             
       - uses: actions/upload-artifact@v3   
         with:

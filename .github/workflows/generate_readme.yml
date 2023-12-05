@@ -19,7 +19,7 @@ jobs:
 
       - name: Run update script
         run: | 
-           ${{ github.event.pull_request.title }} >> readme.txt
+           echo ${{ github.event.pull_request.title }} >> readme.txt
             
       - uses: actions/upload-artifact@v3   
         with:

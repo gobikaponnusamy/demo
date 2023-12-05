@@ -8,7 +8,7 @@ pr_title=$(git log --format=%s -n 1)
 pr_description=$(git log --format=%b -n 1)
 
 # Extract the readable title from the commit message
-readable_title=$(echo "$pr_title" | sed -E 's/Merge (.*) into .*/\1/')
+readable_title=$(echo "$pr_title" | sed -n 's/Merge \(.*\) into .*/\1/p')
 
 # Create the output directory if it doesn't exist
 mkdir -p output
@@ -23,3 +23,4 @@ else
   echo "### Pull Request Title: $readable_title" >> output/readme.txt
   echo "=========================" >> output/readme.txt
 fi
+

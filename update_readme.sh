@@ -4,7 +4,7 @@
 cd "$(git rev-parse --show-toplevel)"
 
 # Get the pull request title and description
-pr_title=$(git log --format=%s -n 1)
+pr_title=$(git show --format=%s -s HEAD)
 pr_description=$(git log --format=%b -n 1)
 
 # Create the output directory if it doesn't exist
